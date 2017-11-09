@@ -53,6 +53,7 @@ Illidan is weak against opponents with blinds.
 Illidan is weak against opponents with CC's.
 
 CONTROVERSIAL HEROES:
+
 PICK THESE HEROES IF YOU LIKE THEM:
 auriel
 alarak
