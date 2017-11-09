@@ -229,16 +229,14 @@ if __name__ == '__main__':
         print("\n")
 
         parser = argparse.ArgumentParser()
-        '''
-        parser.add_argument( "-e", "--enemies", type=str, default=None, choices=DraftGuru.hero_list.keys(), help="comma-separated list of heroes picked by the enemy team" )
-        parser.add_argument( "-a", "--allies", type=str, default=None, choices=DraftGuru.hero_list.keys(), help="comma-separated list of heroes picked by the allied team" )
-        parser.add_argument( "-b", "--battlefield", type=str, default=None, choices=DraftGuru.battlefields, help="comma-separated list of heroes picked by the allied team" )
-        '''
-        parser.add_argument( "-e", "--enemies", type=str, default=None, help="comma-separated list of heroes picked by the enemy team" )
-        parser.add_argument( "-a", "--allies", type=str, default=None, help="comma-separated list of heroes picked by the allied team" )
-        parser.add_argument( "-b", "--battlefield", type=str, default=None, help="comma-separated list of heroes picked by the allied team" )
+        parser.add_argument( "-e", "--enemies", type=str, default=None, help="comma-separated list of heroes picked by the enemy team, Ex: genji,cassia,samuro,azmodan,sonya" )
+        parser.add_argument( "-a", "--allies", type=str, default=None, help="comma-separated list of heroes picked by the allied team, Ex: tracer,morales,anubarak,leoric,lucio" )
+        parser.add_argument( "-b", "--battlefield", type=str, choices=DraftGuru.battlefields, default=None, help="quote-enclosed name of the battlefield you are playing on, Ex: \"battlefield of eternity\"" )
 
         args = parser.parse_args()
+
+        if args.allies == None or args.enemies == None or args.battlefield == None:
+            print ( "You are missing parameters. Please run \"python python.rb --help\" for usage information." )
 
         print ( "ALLIED HEROES:\n{}\n".format(args.allies.replace(",", "\n")) )
         print ( "ENEMY HEROES:\n{}\n".format(args.enemies.replace(",", "\n")) )
